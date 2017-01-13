@@ -1,0 +1,90 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../iron-flex-layout/iron-flex-layout-classes.html">
+<!--
+`lazy-flex-layout`
+
+
+@demo demo/index.html 
+-->
+
+<dom-module id="lazy-flex-layout">
+  <template>
+    <style include="iron-flex iron-flex-alignment iron-flex-reverse iron-flex-factors iron-positioning">
+	    :host{
+		    display:block;
+	    }
+    </style>
+    <div class$="[[_getClass(vertical,center,wrap,justified,justifiedType)]]">
+	    <content></content>
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'lazy-flex-layout',
+
+      properties: {
+        vertical: {
+          type: Boolean,
+          value: false
+        },
+        center:{
+	      type: Boolean,
+          value: false
+        },
+        wrap:{
+	      type: Boolean,
+          value: false  
+        },
+        justified:{
+	      type:Boolean,
+	      value:false
+        },
+        justifiedType:{
+	      type:String,
+	      value:"normal"
+        }
+      },
+	  _getClass:function(ver,cen,wrap,just,just_type){
+		  var result = ["layout"];
+		  if(ver){
+			  result.push("vertical");
+		  }else{
+			  result.push("horizontal");
+		  }
+		  if(cen){
+			  result.push("center");
+		  }
+		  if(wrap){
+			  result.push("wrap")
+		  }
+		  if(just){
+			  if(just_type=="normal"){
+				  result.push("justified")
+			  }else{
+				  result.push(just_type+"-justified");
+			  }
+		  }
+		  return result.join(" ");
+	  }
+    });
+  </script>
+</dom-module>
+
+<dom-module id="lazy-flex">
+	<style include="iron-flex">
+		:host{
+			@apply(--layout-flex);
+		}
+	</style>
+	<template>
+		<content></content>
+	</template>
+	<script>
+		Polymer({
+			is:"lazy-flex"
+		})
+	</script>
+</dom-module>

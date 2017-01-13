@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>lazy-flex-layout demo</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../lazy-flex-layout.html">
+
+    <style is="custom-style" include="demo-pages-shared-styles">
+    </style>
+  </head>
+  <body>
+    <div class="vertical-section-container centered">
+      <h3>Basic lazy-flex-layout demo</h3>
+      <demo-snippet>
+        <template>
+          <lazy-flex-layout>
+          	<lazy-flex>1</lazy-flex>
+          	<lazy-flex>1</lazy-flex>
+          	<lazy-flex>1</lazy-flex>
+          	<lazy-flex>1</lazy-flex>
+          </lazy-flex-layout>
+        </template>
+      </demo-snippet>
+    </div>
+  </body>
+</html>
